@@ -13,7 +13,6 @@ python = "^3.9"
 timm = "^0.5"
 torch = "^2"
 torchvision = "^0.15"
-histoprep = "^2"
 rich-click = "^1.6"
 scikit-learn = "^1.2"
 
