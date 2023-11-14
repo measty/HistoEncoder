@@ -2,7 +2,7 @@ from collections.abc import Generator, Iterable
 from typing import Any, Union
 
 import torch
-from timm.models.xcit import XCiT
+from timm.models.xcit import Xcit
 from torch import Tensor
 
 from ._check import check_encoder
@@ -14,7 +14,7 @@ ERROR_ELEMENT = "Expected the first batch element to be a tensor."
 
 @torch.no_grad()
 def yield_features(
-    encoder: XCiT,
+    encoder: Xcit,
     loader: Iterable[Union[Tensor, tuple[Tensor, ...]]],
     *,
     num_blocks: int = 1,
@@ -24,7 +24,7 @@ def yield_features(
     features.
 
     Args:
-        encoder: XCiT encoder model.
+        encoder: Xcit encoder model.
         loader: `DataLoader` yielding a batches with images as the first or only
             element.
         num_blocks: Number of attention blocks to include in the extracted features.
@@ -34,7 +34,7 @@ def yield_features(
             features to the extracted features. Defaults to False.
 
     Raises:
-        TypeError: Encoder model is not `XCiT`.
+        TypeError: Encoder model is not `Xcit`.
         ValueError: Loader `batch_size` is `None`.
         TypeError: The first or only batch element is not a batch of image tensors.
 
@@ -63,7 +63,7 @@ def yield_features(
 
 
 def extract_features(
-    encoder: XCiT,
+    encoder: Xcit,
     images: Tensor,
     *,
     num_blocks: int = 1,
